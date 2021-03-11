@@ -20,29 +20,17 @@ int main (int argc , char * argv[]){
 	
 
 
-	Pessoa pessoa1;
-	strcpy(pessoa1.nome,"Maria Mourinho");
-	pessoa1.idade =  50;
 	
-	printf("pessoa1.nome: %s\n", pessoa1.nome);
-	printf("pessoa1.idade: %d\n", pessoa1.idade);
-	printf("sizeof(Pessoa) : %d\n", (int) sizeof(Pessoa));
-
-
-	if(write(fd,&pessoa1, sizeof(Pessoa))>0){
-		perror("Write");
-	}
-
-	lseek(fd, -sizeof(Pessoa), SEEK_CUR);
-	lseek(fd, -sizeof(Pessoa), SEEK_CUR);
+	lseek(fd, -sizeof(Pessoa), SEEK_END);
+	
 
 
 	Pessoa pessoa1_read;
 
 	
 	if( read(fd, &pessoa1_read, sizeof(Pessoa)) > 0){
-		printf("pessoa1_read.nome: %s\n",pessoa1_read.nome);
-		printf("pessoa1_read.idade: %d\n",pessoa1_read.idade);
+		printf("ult_pessoa_read.nome: %s\n",pessoa1_read.nome);
+		printf("ult_pessoa_read.idade: %d\n",pessoa1_read.idade);
 	
 	
 	}
