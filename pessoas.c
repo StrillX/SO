@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "pessoa.h"
 
 typedef struct Pessoa{
 	char nome[200];
@@ -32,6 +33,8 @@ int main (int argc , char * argv[]){
 
 
 	Pessoa pessoa1_read;
+
+	new_person("Ednaldo Pereira",55);
 	if( read(fd, &pessoa1_read, sizeof(Pessoa)) > 0){
 		printf("pessoa1_read.nome: %s\n",pessoa1_read.nome);
 		printf("pessoa1_read.idade: %d\n",pessoa1_read.idade);
