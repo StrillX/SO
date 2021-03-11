@@ -11,7 +11,7 @@ typedef struct Pessoa{
 
 int new_person(char * name, int age){
 
-    
+
     int fd = open("pessoas.bin",O_CREAT | O_APPEND | O_RDWR, 0644);
 
     if(fd < 0){
@@ -24,7 +24,7 @@ int new_person(char * name, int age){
     if(write(fd,&pessoa1, sizeof(Pessoa))>0){
 		perror("Write");
 	}
-
+    close(fd);
     return 0;
 }
 
