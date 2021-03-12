@@ -15,7 +15,11 @@ int main (int argc , char * argv[]){
 
 
 	new_person("Ednaldo Pereira",55);
-	int fd = open("pessoas.bin",O_CREAT | O_APPEND | O_RDWR, 0644);
+
+	person_change_age("Ednaldo Pereira",60);
+
+
+	int fd = open("pessoas.bin",O_CREAT | O_APPEND | O_RDWR, 0666);
 	//check fd < 0
 	
 	lseek(fd, -sizeof(Pessoa), SEEK_END);
